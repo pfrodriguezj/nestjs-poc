@@ -1,13 +1,14 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { CountryService } from './country/country.service';
-import { countryProviders } from './country/country.providers';
-import { DatabaseModule } from './database/database.module';
+import { CategoryModule } from './category/category.module';
+import { DatabaseModule } from './config/database.module';
+import {CategoryTypeModel} from "./categoryType/domain/categoryType-domain";
+import {CategoryTypeModule} from "./categoryType/categoryType.module";
 
 @Module({
-  imports: [DatabaseModule],
+  imports: [DatabaseModule, CategoryModule, CategoryTypeModule],
   controllers: [AppController],
-  providers: [AppService, CountryService, ...countryProviders],
+  providers: [AppService],
 })
 export class AppModule {}

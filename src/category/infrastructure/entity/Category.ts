@@ -6,7 +6,7 @@ export class Category {
   @PrimaryGeneratedColumn({ name: 'id_category' })
   id: number;
 
-  @ManyToOne(type => CategoryType, categoryType => categoryType.id)
+  @ManyToOne((type) => CategoryType, (categoryType) => categoryType.id)
   @JoinColumn({ name: 'id_category_type' })
   idCategoryType: CategoryType;
 
@@ -15,6 +15,4 @@ export class Category {
 
   @Column()
   active: boolean;
-
 }
-

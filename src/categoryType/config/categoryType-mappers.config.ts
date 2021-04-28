@@ -1,10 +1,10 @@
-import {Provider} from "@nestjs/common";
-import {CategoryTypeEntityMapper} from "../infrastructure/mappers/categoryType-entity-mapper";
-import {CategoryTypeCreateMapper} from "../infrastructure/mappers/categoryType-create-mapper";
+import { Provider } from '@nestjs/common';
+import { CategoryTypeEntityMapper } from '../infrastructure/mappers/categoryType-entity-mapper';
+import { CategoryTypeCreateMapper } from '../infrastructure/mappers/categoryType-create-mapper';
 
-const categoryTypeMappersConfig : Provider[] = [
+const categoryTypeMappersConfig: Provider[] = [
   CategoryTypeEntityMapper,
-  CategoryTypeCreateMapper
+  CategoryTypeCreateMapper,
 ];
 
 export default categoryTypeMappersConfig;

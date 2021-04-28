@@ -1,8 +1,8 @@
-import {Injectable} from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 
-import {MapperBase} from '../../../shared/domain/mapper/mapper-base';
-import {Category} from "../entity/Category";
-import {CategoryModel} from "../../domain/category-domain";
+import { MapperBase } from '../../../shared/domain/mapper/mapper-base';
+import { Category } from '../entity/Category';
+import { CategoryModel } from '../../domain/category-domain';
 
 /**
  * This is a Mapper to convert from one structure to Another

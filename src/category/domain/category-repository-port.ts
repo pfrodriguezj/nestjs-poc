@@ -4,5 +4,5 @@ export abstract class CategoryRepositoryPort {
 
   abstract getAll(): Promise<Array<CategoryModel>>;
   abstract create(model: CategoryModel): Promise<CategoryModel>;
-
+  abstract findById(id: number): Promise<CategoryModel>;
 }

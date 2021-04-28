@@ -1,7 +1,7 @@
-import {Injectable} from '@nestjs/common';
-import {CategoryTypeModel} from "../domain/categoryType-domain";
-import {CategoryType} from "../infrastructure/entity/categoryType.entity";
-import {CategoryTypeRepositoryPort} from "../domain/categoryType-repository-port";
+import { Injectable } from '@nestjs/common';
+import { CategoryTypeModel } from '../domain/categoryType-domain';
+import { CategoryType } from '../infrastructure/entity/categoryType.entity';
+import { CategoryTypeRepositoryPort } from '../domain/categoryType-repository-port';
 
 @Injectable()
 export class CategoryTypeCreateUsecase {
@@ -12,5 +12,4 @@ export class CategoryTypeCreateUsecase {
   async createCategory(model: CategoryTypeModel): Promise<CategoryType> {
     return this.categoryTypeRepository.create(model);
   }
-
 }

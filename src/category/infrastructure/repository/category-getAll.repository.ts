@@ -1,24 +1,19 @@
-import {Inject, Injectable} from "@nestjs/common";
-import {InjectRepository} from "@nestjs/typeorm";
-import {Repository} from "typeorm";
-import {CategoryEntityMapper} from "../mappers/category-entity-mapper";
-import {CategoryModel} from "../../domain/category-domain";
-import {Category} from "../entity/Category";
-import {CategoryType} from "../../../categoryType/infrastructure/entity/categoryType.entity";
+import { Inject, Injectable } from '@nestjs/common';
+import { Repository } from 'typeorm';
+import { CategoryEntityMapper } from '../mappers/category-entity-mapper';
+import { CategoryModel } from '../../domain/category-domain';
+import { Category } from '../entity/Category';
 
 @Injectable()
 export class CategoryGetAllRepository {
   constructor(
-      @Inject('CATEGORY_REPOSITORY')
-      private readonly categoryRepository: Repository<Category>,
+    @Inject('CATEGORY_REPOSITORY')
+    private readonly categoryRepository: Repository<Category>,
     private readonly mapper: CategoryEntityMapper,
-  ) {
-  }
+  ) {}
 
-  async getAll(): Promise<Array<CategoryModel>> {
+  async getAll(): Promise<Array<Category>> {
     const categories = await this.categoryRepository.find();
-    return categories.map(e => this.mapper.mapToModel(e));
+    return categories.map((e) => this.mapper.mapToModel(e));
   }
-
-
 }

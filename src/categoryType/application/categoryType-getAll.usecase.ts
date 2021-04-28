@@ -1,6 +1,6 @@
-import {Injectable} from '@nestjs/common';
-import {CategoryType} from "../../categoryType/infrastructure/entity/categoryType.entity";
-import {CategoryTypeRepositoryPort} from "../domain/categoryType-repository-port";
+import { Injectable } from '@nestjs/common';
+import { CategoryType } from '../../categoryType/infrastructure/entity/categoryType.entity';
+import { CategoryTypeRepositoryPort } from '../domain/categoryType-repository-port';
 
 @Injectable()
 export class CategoryTypeGetAllUsecase {

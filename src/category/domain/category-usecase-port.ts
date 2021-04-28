@@ -1,8 +1,9 @@
-import {CategoryModel} from "./category-domain";
+import { CategoryModel } from './category-domain';
 
 export abstract class CategoryUsecasePort {
+  abstract getAll(): Promise<Array<CategoryModel>>;
 
-    abstract getAll(): Promise<Array<CategoryModel>>;
+  abstract create(model: CategoryModel): Promise<CategoryModel>;
 
-    abstract create(model: CategoryModel): Promise<CategoryModel>;
+  abstract getById(id: number): Promise<CategoryModel>;
 }

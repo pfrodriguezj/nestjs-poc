@@ -1,12 +1,11 @@
 import { Inject, Injectable, NotFoundException } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { Category } from '../entity/Category';
 import { CategoryModel } from '../../domain/category-domain';
 import { CategoryEntityMapper } from '../mappers/category-entity-mapper';
 
 @Injectable()
-export class CategoryCreateRepository {
+export class CategoryFindByIdRepository {
   constructor(
     @Inject('CATEGORY_REPOSITORY')
     private readonly categoryRepository: Repository<Category>,
@@ -16,12 +15,9 @@ export class CategoryCreateRepository {
     // this.logger.info('CategoryTypeCreateRepository');
   }
 
-  async create(model: CategoryModel): Promise<CategoryModel> {
-    const newCategory = Object.assign(
-      this.categoryRepository.create(),
-      this.mapper.mapFromModel(model),
-    );
-    const result = await this.categoryRepository.save(newCategory);
-    return this.mapper.mapToModel(result);
+  async findById(findId: number): Promise<CategoryModel> {
+    const category = await this.categoryRepository.findOne(findId);
+    if (!category) throw new NotFoundException();
+    return this.mapper.mapToModel(category);
   }
 }

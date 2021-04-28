@@ -4,6 +4,7 @@ import { CategoryCreateRepository } from './category-create.repository';
 import { CategoryModel } from '../../domain/category-domain';
 import { CategoryRepositoryPort } from '../../domain/category-repository-port';
 import { CategoryFindByIdRepository } from './category-findById.repository';
+import { CategoryDeleteByIdRepository } from "./category-deleteById.repository";
 
 @Injectable()
 export class CategoryRepositoryFacade implements CategoryRepositoryPort {
@@ -12,6 +13,7 @@ export class CategoryRepositoryFacade implements CategoryRepositoryPort {
     private readonly categoryGetAll: CategoryGetAllRepository,
     private readonly categoryCreate: CategoryCreateRepository,
     private readonly categoryFindById: CategoryFindByIdRepository,
+    private readonly categoryDeleteById: CategoryDeleteByIdRepository,
   ) {}
 
   async getAll(): Promise<Array<CategoryModel>> {
@@ -24,5 +26,9 @@ export class CategoryRepositoryFacade implements CategoryRepositoryPort {
 
   async findById(id: number): Promise<CategoryModel> {
     return await this.categoryFindById.findById(id);
+  }
+
+  async deleteById(id: number): Promise<void> {
+    return await this.categoryDeleteById.deleteById(id);
   }
 }

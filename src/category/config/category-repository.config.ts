@@ -5,11 +5,13 @@ import { CategoryCreateRepository } from '../infrastructure/repository/category-
 import { CategoryRepositoryPort } from '../domain/category-repository-port';
 import { CategoryRepositoryFacade } from '../infrastructure/repository/category-repository-facade';
 import { CategoryFindByIdRepository } from '../infrastructure/repository/category-findById.repository';
+import { CategoryDeleteByIdRepository } from '../infrastructure/repository/category-deleteById.repository';
 
 const categoryRepositoryConfig: Provider[] = [
   CategoryGetAllRepository,
   CategoryCreateRepository,
   CategoryFindByIdRepository,
+  CategoryDeleteByIdRepository,
 
   {
     provide: CategoryRepositoryPort,

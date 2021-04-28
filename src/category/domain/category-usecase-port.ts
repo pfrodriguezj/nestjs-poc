@@ -6,4 +6,6 @@ export abstract class CategoryUsecasePort {
   abstract create(model: CategoryModel): Promise<CategoryModel>;
 
   abstract getById(id: number): Promise<CategoryModel>;
+
+  abstract deleteById(id: number): Promise<void>;
 }

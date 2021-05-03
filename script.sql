@@ -1,11 +1,11 @@
-/*
+
 create table Country (
     id int NOT NULL AUTO_INCREMENT,
     name varchar(255) NOT NULL,
     code varchar(5) NOT NULL,
     CONSTRAINT country_PK PRIMARY KEY (id)
 );
-*/
+
 
 create table CategoryType (
     id_category_type int NOT NULL AUTO_INCREMENT,

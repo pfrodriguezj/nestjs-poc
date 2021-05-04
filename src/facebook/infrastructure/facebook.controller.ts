@@ -1,9 +1,12 @@
 import { Controller, Get, HttpStatus, Req, UseGuards } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { Request } from 'express';
+import { ApiTags } from '@nestjs/swagger';
+import { Profile } from "passport";
 
 @Controller()
-export class AppController {
+@ApiTags('facebook')
+export class FacebookController {
   @Get('/facebook')
   @UseGuards(AuthGuard('facebook'))
   async facebookLogin(): Promise<any> {
@@ -12,7 +15,10 @@ export class AppController {
 
   @Get('/facebook/redirect')
   @UseGuards(AuthGuard('facebook'))
-  async facebookLoginRedirect(@Req() req: Request): Promise<any> {
+  async facebookLoginRedirect(
+    @Req() req: Request,
+    @Req() prof: Profile,
+  ): Promise<any> {
     return {
       statusCode: HttpStatus.OK,
       data: req.user,

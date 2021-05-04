@@ -1,7 +1,7 @@
 import { Body, Controller, Get, HttpCode, Post } from '@nestjs/common';
-import { CategoryType } from './infrastructure/entity/categoryType.entity';
-import { CategoryTypeUsecasePort } from './domain/categoryType-usecase-port';
-import { CategoryTypeCreateMapper } from './infrastructure/mappers/categoryType-create-mapper';
+import { CategoryType } from './entity/categoryType.entity';
+import { CategoryTypeUsecasePort } from '../domain/categoryType-usecase-port';
+import { CategoryTypeCreateMapper } from './mappers/categoryType-create-mapper';
 import { ApiTags } from "@nestjs/swagger";
 
 @Controller('/categoryType')

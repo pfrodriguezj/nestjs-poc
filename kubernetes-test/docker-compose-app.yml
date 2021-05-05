@@ -1,0 +1,21 @@
+version: '3.3'
+services:
+  app:
+    container_name: app_poc
+    ports:
+    - 3000:3000
+    build:
+      context: ../
+      dockerfile: ./Dockerfile
+    environment:
+      DB_HOST: 'mysqldb'
+      DB_PORT:  3306
+      DB_USERNAME: 'root'
+      DB_PASSWORD: 'PASSWORD'
+      DB_NAME: 'poc_type_orm'
+    networks:
+      - poc
+networks:
+  poc:
+    external:
+      name: poc_nw
